@@ -6,7 +6,7 @@ exports.config = {
       // 'path/to/excluded/files'
     ],
     capabilities: [{
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
     logLevel: 'silent',
     coloredLogs: true,
