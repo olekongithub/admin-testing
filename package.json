@@ -1,0 +1,17 @@
+{
+  "name": "testing",
+  "private": true,
+  "version": "0.0.1",
+  "description": "end to end testing for the admin dashboard",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Matt Broadstone <matt@hive-io.com>",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-webdriver": "^1.0.2",
+    "selenium-standalone": "^4.8.0",
+    "mocha": "^2.3.4",
+    "chai": "^3.4.1"
+  }
+}
