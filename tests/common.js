@@ -11,6 +11,7 @@ module.exports = {
       .then(() => browser.selectByVisibleText('//select[@name="domain"]', domain))
       .then(() => browser.click('//button[@type="submit"]'))
       .then(() => browser.waitForExist('h1.page-header'))
+      .then(() => browser.getText('h1.page-header'))
       .then((header) => { expect(header).to.equal('Dashboard'); });
   }
 };
