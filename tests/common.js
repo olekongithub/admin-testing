@@ -10,6 +10,7 @@ module.exports = {
       .then(() => browser.setValue('//input[@name="password"]', password))
       .then(() => browser.selectByVisibleText('//select[@name="domain"]', domain))
       .then(() => browser.click('//button[@type="submit"]'))
-      .then(() => browser.waitForExist('h1.page-header'));
+      .then(() => browser.waitForExist('h1.page-header'))
+      .then((header) => { expect(header).to.equal('Dashboard'); });
   }
 };
