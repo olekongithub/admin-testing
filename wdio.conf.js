@@ -1,6 +1,6 @@
 exports.config = {
     specs: [
-      './tests/admin.test.js'
+      './tests/*.test.js'
     ],
     exclude: [
       // 'path/to/excluded/files'
@@ -11,7 +11,8 @@ exports.config = {
     logLevel: 'silent',
     coloredLogs: true,
     screenshotPath: './errorShots/',
-    baseUrl: 'http://tongster.synology.me',
+    baseUrl: process.env.SERVER ?
+      'http://' + process.env.SERVER : 'http://tongster.synology.me',
     waitforTimeout: 1500000,
     framework: 'mocha',
     reporter: 'spec',
