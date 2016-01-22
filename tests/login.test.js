@@ -1,11 +1,10 @@
-var expect = require('chai').expect;
+var common = require('./common'),
+    expect = require('chai').expect;
 
 describe('log in to the admin page', () => {
   it('should load the login page', () => {
     return browser.url('/').getTitle()
-      .then((title) => {
-        expect(title).to.equal('hiveIO Appliance | hio-01');
-      });
+      .then((title) => { expect(title).to.startWith('hiveIO Appliance |'); });
   });
 
   it('should login', () => {

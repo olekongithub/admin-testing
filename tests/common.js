@@ -18,10 +18,10 @@ module.exports = {
       .then((header) => { expect(header).to.equal('Dashboard'); });
   },
 
-  clickSidebarTab: function(browser, title) {
-    return browser.click(`//a[contains(text(), "${title}")]`)
+  clickSidebarTab: function(browser, tabText, expectedTitle) {
+    return browser.click(`//a[contains(text(), "${tabText}")]`)
       .then(() => browser.waitForExist('h1.page-header'))
       .then(() => browser.getText('h1.page-header'))
-      .then((title) => { expect(title).to.startWith(title); });
+      .then((title) => { expect(title).to.startWith(!!expectedTitle ? expectedTitle : tabText); });
   }
 };
