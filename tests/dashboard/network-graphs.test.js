@@ -1,14 +1,9 @@
-var common = require('./common'),
+var common = require('../common'),
     expect = require('chai').expect;
 
-describe.only('Network Graphs', () => {
+describe('Network Graphs', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));
-    it('should navigate to Network Graphs', () => {
-      return browser.click('//a[contains(text(), "Network Graph")]')
-      .then(() => browser.waitForExist('h1.page-header'))
-      .then(() => browser.getText('h1.page-header'))
-      .then((title) => { expect(title).to.equal('Network Graphs'); });
-  });
+  it('should navigate to Network Graphs', () => common.clickSidebarTab(browser, 'Network Graph'));
 
   [
     //Eth0

@@ -1,14 +1,9 @@
-var common = require('./common'),
+var common = require('../common'),
     expect = require('chai').expect;
 
-describe.only('System Graphs', () => {
+describe('System Graphs', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));
-  it('should navigate to system graphs', () => {
-    return browser.click('//a[contains(text(), "System Graph")]')
-      .then(() => browser.waitForExist('h1.page-header'))
-      .then(() => browser.getText('h1.page-header'))
-      .then((title) => { expect(title).to.equal('System Graphs'); });
-  });
+  it('should navigate to system graphs', () => common.clickSidebarTab(browser, 'System Graph'));
 
   [
     //CPU
