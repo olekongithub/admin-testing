@@ -1,5 +1,5 @@
-var common = require('../common'),
-    expect = require('chai').expect;
+const common = require('../common'),
+      expect = require('chai').expect;
 
 describe('Templates', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));
@@ -9,7 +9,7 @@ describe('Templates', () => {
     return browser.click('button[id=new_tmpl]')
       .then(() => browser.waitForExist('h1.page-header'))
       .then(() => browser.getText('h1.page-header'))
-      .then((title) => { expect(title).to.equal('Create New Template'); });
+      .then(title => expect(title).to.equal('Create New Template'));
   });
 
   it('should fill in the new template data', () => {

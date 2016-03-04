@@ -1,12 +1,12 @@
-var gulp = require('gulp'),
-    selenium = require('selenium-standalone'),
-    webdriver = require('gulp-webdriver');
+const gulp = require('gulp'),
+      selenium = require('selenium-standalone'),
+      webdriver = require('gulp-webdriver');
 
-var seleniumServer;
-gulp.task('selenium', (done) => {
+let seleniumServer;
+gulp.task('selenium', done => {
   selenium.install(() => {
     selenium.start((err, child) => {
-      if (err) { return done(err); }
+      if (err) return done(err);
       seleniumServer = child;
       done();
     });

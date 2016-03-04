@@ -1,9 +1,10 @@
-var common = require('../common'),
+const common = require('../common'),
     expect = require('chai').expect;
 
 describe('System Graphs', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));
-  it('should navigate to system graphs', () => common.clickSidebarTab(browser, 'System Graph'));
+  it('should navigate to system graphs', () =>
+    common.clickSidebarTab(browser, 'System Graph'));
 
   [
     //CPU
@@ -32,7 +33,7 @@ describe('System Graphs', () => {
     { name: 'load by Day', metric: 'mem', duration: '1 Day', expected: 'System Memory Past Day' },
     { name: 'load by week', metric: 'mem', duration: '1 Week', expected: 'System Memory Past Week' },
     { name: 'load by month', metric: 'mem', duration: '1 Month', expected: 'System Memory Past Month' }
-  ].forEach((test) => {
+  ].forEach(test => {
     it('should show ' + test.name, () => {
       return Promise.all([
         browser.selectByVisibleText('//select[@name="metric"]', test.metric),
@@ -40,7 +41,7 @@ describe('System Graphs', () => {
       ])
       .then(() => browser.waitForExist('#gtitle'))
       .then(() => browser.getText('#gtitle'))
-      .then((title) => { expect(title).to.equal(test.expected); });
+      .then(title => expect(title).to.equal(test.expected));
     });
   });
 

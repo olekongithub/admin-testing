@@ -1,5 +1,5 @@
-var common = require('../common'),
-    expect = require('chai').expect;
+const common = require('../common'),
+      expect = require('chai').expect;
 
 describe('Power', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));

@@ -1,9 +1,10 @@
-var common = require('../common'),
-    expect = require('chai').expect;
+const common = require('../common'),
+      expect = require('chai').expect;
 
 describe('Network Graphs', () => {
   before(() => common.login(browser, 'admin', 'admin', 'local'));
-  it('should navigate to Network Graphs', () => common.clickSidebarTab(browser, 'Network Graph'));
+  it('should navigate to Network Graphs', () =>
+    common.clickSidebarTab(browser, 'Network Graph'));
 
   [
     //Eth0
@@ -14,7 +15,7 @@ describe('Network Graphs', () => {
     { name: 'Eth0 Past Hour', metric: 'Eth0', duration: '1 Day', expected: 'Eth0 Past Day' },
     { name: 'Eth0 Past Hour', metric: 'Eth0', duration: '1 Week', expected: 'Eth0 Past Week' },
     { name: 'Eth0 Past Hour', metric: 'Eth0', duration: '1 Month', expected: 'Eth0 Past Month' },
-  ].forEach((test) => {
+  ].forEach(test => {
     it('should show ' + test.name, () => {
       return Promise.all([
         browser.selectByVisibleText('//select[@name="metric"]', test.metric),
@@ -22,7 +23,7 @@ describe('Network Graphs', () => {
       ])
       .then(() => browser.waitForExist('#gtitle'))
       .then(() => browser.getText('#gtitle'))
-      .then((title) => { expect(title).to.equal(test.expected); });
+      .then(title => expect(title).to.equal(test.expected));
     });
   });
 
