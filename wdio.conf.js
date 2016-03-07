@@ -13,7 +13,7 @@ exports.config = {
     coloredLogs: true,
     screenshotPath: './errorShots/',
     baseUrl: process.env.SERVER ?
-      'http://' + process.env.SERVER : 'http://tongster.synology.me',
+      'http://' + process.env.SERVER : 'http://amazon.com',
     waitforTimeout: 1500000,
     framework: 'mocha',
     reporter: 'spec',

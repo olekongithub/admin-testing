@@ -1,3 +1,5 @@
+"use strict"
+
 const gulp = require('gulp'),
       selenium = require('selenium-standalone'),
       webdriver = require('gulp-webdriver');
